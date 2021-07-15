@@ -1,6 +1,8 @@
 #!/bin/bash
-sudo su
-yum -y install httpd
-echo "<p> My Instance! </p>" >> /var/www/html/index.html
-sudo systemctl enable httpd
-sudo systemctl start httpd
+# Use this for your user data (script from top to bottom)
+# install httpd (Linux 2 version)
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "<h1>Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
